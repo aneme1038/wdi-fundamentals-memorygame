@@ -33,7 +33,8 @@ function createBoard() {
 };
 createBoard();
 function checkForMatch() {
-	this.cardImage.setAttribute('src');
+	var attribute = document.getElementsByTagName('src');
+	attribute[0].setAttribute('src', this.cardImage);
 	if (cardsInPlay[0] === cardsInPlay[1]) {
   		console.log("You found a match!");
 	} 
