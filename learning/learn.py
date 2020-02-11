@@ -116,3 +116,50 @@ def compute_bill(food):
       total += prices[item]
       stock[item] -= 1
   return total
+
+#rock paper scissors exercise
+"""
+In this project, we'll build Rock-Paper-Scissors!
+The program should do the following:
+  1. Prompt the user to select either Rock, Paper, or Scissors.
+  2. Instruct the computer to randomly select either Rock, Paper, or Scissors.
+  3. Compare the user's choice and the computer's choice.
+  4. Determine a winner (the user or the computer).
+  5. Inform the user who the winner is.
+"""
+#import random integer function
+from random import randint
+#declare rock paper scissors list of options
+options = ["ROCK", "PAPER", "SCISSORS"]
+#dictionary that contains win/lose messages
+message = {
+  "tie": "Yawn it's a tie!",
+  "won": "Yay you won!",
+  "lost": "Aww you lost!"
+}
+#function that decides who the winner is
+def decide_winner(user_choice, computer_choice):
+  print "You chose %s" % user_choice
+  print "The computer chose %s" % computer_choice
+  if user_choice == computer_choice:
+    print message["tie"]
+  elif user_choice == options[0] and computer_choice == options[2]:
+    print message["won"]
+  elif user_choice == options[1] and computer_choice == options[0]:
+    print message["won"]
+  elif user_choice == options[2] and computer_choice == options[1]:
+    print message["won"]
+  else:
+    print message["lost"]
+#function that starts the game
+def play_RPS():
+  #determine user's selection/choice
+  user_choice = raw_input("Enter Rock, Paper, or Scissors: ")
+  #uppercase their input in case they enter lowercase
+  user_choice.upper()
+  #have computer make a random selection
+  computer_choice = options[(randint(0, 2))]
+  #call the decide_winner function passing in user's choice and the computer's choice
+  decide_winner(user_choice, computer_choice)
+#call the play_RPS function to start game
+play_RPS()
