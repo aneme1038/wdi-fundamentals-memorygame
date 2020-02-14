@@ -207,3 +207,12 @@ def get_work(mass, acceleration, distance):
 train_work = get_work(train_mass, train_acceleration, train_distance)
 
 print("The GE train does " + str(train_work) + " Joules of work over " + str(train_distance) + " meters.")
+
+#Try/Except statements
+def raises_value_error():
+    raise ValueError
+
+try:
+  raises_value_error()
+except ValueError:
+    print("You raised a ValueError!")
