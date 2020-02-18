@@ -216,3 +216,47 @@ try:
   raises_value_error()
 except ValueError:
     print("You raised a ValueError!")
+
+#Python 3 Sal's Shipping exercise
+premium_ground_cost = 125
+def ground_shipping(weight):
+  cost = 0
+  if weight <= 2:
+    cost = weight * 1.50
+  elif weight > 2 and weight <= 6:
+    cost = weight * 3
+  elif weight > 6 and weight <= 10:
+    cost = weight * 4
+  elif weight > 10:
+    cost = weight * 4.75
+  return float(cost) + 20
+def drone_shipping(weight):
+  cost = 0
+  if weight <= 2:
+    cost = weight * 4.50
+  elif weight > 2 and weight <= 6:
+    cost = weight * 9
+  elif weight > 6 and weight <= 10:
+    cost = weight * 12
+  elif weight > 10:
+    cost = weight * 14.25
+  return float(cost)
+def user_message(weight):
+  #get cost from both functions based on weight
+  ground_cost = ground_shipping(weight)
+  drone_cost = drone_shipping(weight)
+  #check which is the higher cost
+  if ground_cost < drone_cost and ground_cost < premium_ground_cost:
+    print("The cheapest method of shipping for your given weight is GROUND shipping")
+    print("The cost of using this method of shipping is $" + str(float(ground_cost)))
+  elif drone_cost < ground_cost and drone_cost < premium_ground_cost:
+    print("The cheapest method of shipping for your given weight is DRONE shipping")
+    print("The cost of using this method of shipping is $" + str(float(drone_cost)))
+  elif premium_ground_cost < ground_cost and premium_ground_cost < drone_cost:
+    print("The cheapest method of shipping for your given weight is PREMIUM GROUND shipping")
+    print("The cost of using this method of shipping is $" + str(float(premium_ground_cost)) + "0")
+  else:
+    print("The program ran into an error")
+
+user_message(4.8)
+user_message(41.5)
