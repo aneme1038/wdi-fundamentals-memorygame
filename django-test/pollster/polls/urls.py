@@ -10,6 +10,7 @@ urlpatterns = [
     #passing in the question_id from views for detail
     path('<int:question_id>/', views.detail, name='detail'),
     #passing question_id again for the results view
-    path('<int:question_id>/results/', views.results, name='results')
-
+    path('<int:question_id>/results/', views.results, name='results'),
+    #pass in vote
+    path('<int:question_id>/vote/', views.vote, name='vote')
 ]
