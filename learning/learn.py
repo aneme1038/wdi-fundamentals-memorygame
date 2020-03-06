@@ -362,3 +362,11 @@ for turn in range(4):
       if turn == 3:
         print "Game Over"
     print_board(board)
+#==============================================#
+from random import randint
+
+# Generates a number from 1 through 10 inclusive
+random_number = randint(1, 10)
+
+guesses_left = 3
+# Start your game!
